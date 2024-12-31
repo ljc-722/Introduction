@@ -9,6 +9,7 @@
   Merging ...
   Logging ...
   Logging ...
+  
 3.打开实例终端（点击webshell），先进入客户端终端创建数据库
   $clickhouse-client
   
@@ -50,4 +51,4 @@
   $./mqadmin updateSubGroup -n <ip_addr>:9876 -c DefaultCluster -g TAH_GROUP
     SubscriptionGroupConfig{...}
 
-6.下载我github上的两个文件夹 <log-producer> 和 <log-consumer> 
+6.下载我github上的两个文件夹 <log-producer> 和 <log-consumer> ，在log-producer中的application.yml文件的地址改成
