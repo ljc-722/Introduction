@@ -51,4 +51,18 @@
   $./mqadmin updateSubGroup -n <ip_addr>:9876 -c DefaultCluster -g TAH_GROUP
     SubscriptionGroupConfig{...}
 
-6.下载我github上的两个文件夹 <log-producer> 和 <log-consumer> ，在log-producer中的application.yml文件的地址改成
+6.下载我github上的两个文件夹 <log-producer> 和 <log-consumer> ，在log-producer中的application.yml文件的地址改成mqproxy实例的地址，
+  以及对log-consumer中的LogConsumer.java中对应地方改成mqproxy的地址和clickhouse实例的地址。
+
+7.进入log-producer根目录，终端输入 mvn clean package ，进入SAE控制台，创建<Web应用>，选择代码包部署的Jar包部署，Java环境选择Dragonwell 17，
+  将打包的/target目录下的log-producer-1.0.jar上传，启动命令设置成java -jar log-producer-1.0.jar，HTTP流量选择内网，监听端口为9000，实例
+  最小值选择1，开始创建直到Running。
+
+# 注意这里的启动命令不是高级设置的启动命令，是在代码包部署时的启动命令。7.8两个步骤都需要部署VPC。
+
+8.进入log-consumer根目录，终端输入 mvn clean package ，进入SAE控制台，创建<微服务应用>，选择代码包部署的Jar包部署，Java环境选择Dragonwell 11，
+  将打包的/target目录下的log-consumer-1.0.jar上传，启动命令设置成java -jar log-consumer-1.0.jar，开始创建直到Running。
+
+9.更改温湿度监控FC，即我xxdl仓库所示代码app.py，需要更改部分的地址。
+10.进行测试，在apipost或者其他接口发送邮件，可以查看clickhouse的更新和云计算流的数据。
+  
