@@ -28,7 +28,7 @@
   :)insert into db_log.tbl_devices_log (timestamp, log_level, message) values
   ('2024-10-19 14:00:00', 'WARNING', 'Abnormal device[001] temperature');
 
-  :)select * from db_log.tb1_devices_log;
+  :)select * from db_log.tbl_devices_log;
 
 4.基于SAE依次部署<微服务应用>三个rocketmq组件，即RocketMQ-NameServer、RocketMQ-Broker、RocketMQ-Proxy
   
